@@ -8,5 +8,5 @@
 window.RM_CONFIG = {
   supabaseUrl:     "https://wrzsskunlzayrhzkgfnp.supabase.co",   // e.g. https://abcdxyz.supabase.co
   supabaseAnonKey: "sb_publishable_PGT1BRIBAQR8bSPOcoCghg_tK2Vw7-b",   // Supabase > Project Settings > API > "anon public"
-  razorpayKeyId:   ""    // rzp_test_xxxxx or rzp_live_xxxxx (Key ID only)
+  razorpayKeyId:   "rzp_test_TusCjAN4XOJTkH"    // rzp_test_xxxxx or rzp_live_xxxxx (Key ID only)
 };
