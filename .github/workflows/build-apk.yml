@@ -1,0 +1,32 @@
+name: Build Android APK
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: [index.html, capacitor.config.json, package.json]
+jobs:
+  apk:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - uses: actions/setup-java@v4
+        with: { distribution: temurin, java-version: 17 }
+      - name: Prepare app files (admin.html is NOT included)
+        run: |
+          mkdir www
+          cp index.html manifest.json sw.js icon-*.png www/
+          [ -f config.js ] && cp config.js www/ || true
+          [ -f site.json ] && cp site.json www/ || true
+          sed -i "s#fetch('site.json?'#fetch('https://raw.githubusercontent.com/${{ github.repository }}/${{ github.ref_name }}/site.json?'#" www/index.html
+          grep -c raw.githubusercontent www/index.html
+      - run: npm install
+      - run: npx cap add android
+      - run: npx cap sync android
+      - name: Build APK
+        run: cd android && chmod +x gradlew && ./gradlew assembleDebug
+      - uses: actions/upload-artifact@v4
+        with:
+          name: realistic-mart-apk
+          path: android/app/build/outputs/apk/debug/app-debug.apk
