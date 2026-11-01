@@ -1,0 +1,7 @@
+{
+  "appId": "com.realisticmart.app",
+  "appName": "Realistic Mart",
+  "webDir": "www",
+  "backgroundColor": "#15161a",
+  "android": { "allowMixedContent": false }
+}
