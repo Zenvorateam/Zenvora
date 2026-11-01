@@ -6,7 +6,7 @@
    controlled from admin.html.
    ============================================================ */
 window.RM_CONFIG = {
-  supabaseUrl:     "",   // e.g. https://abcdxyz.supabase.co
-  supabaseAnonKey: "",   // Supabase > Project Settings > API > "anon public"
+  supabaseUrl:     "https://wrzsskunlzayrhzkgfnp.supabase.co",   // e.g. https://abcdxyz.supabase.co
+  supabaseAnonKey: "sb_publishable_PGT1BRIBAQR8bSPOcoCghg_tK2Vw7-b",   // Supabase > Project Settings > API > "anon public"
   razorpayKeyId:   ""    // rzp_test_xxxxx or rzp_live_xxxxx (Key ID only)
 };
